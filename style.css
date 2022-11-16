@@ -51,8 +51,6 @@ h3  {
   margin: 0 auto;
 }
 
-
-
 .flex-column {
   display: flex;
   flex-direction: column;
@@ -69,4 +67,29 @@ h3  {
 
 .hidden {
   display: none;
+}
+
+.button {
+    font-size: 2rem;
+    padding: 2rem;
+    width: 20rem;
+    text-align: center;
+    border: 1px solid var(--darkish);
+    border-radius: 25px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: var(--lighter);
+    background-color: #01161e;
+}
+
+.button:hover   {
+    cursor: pointer;
+    background-color: var(--lightest);
+    color: var(--dark);
+    transition: 350ms;
+}
+
+.button[disabled]:hover {
+    cursor: not-allowed;
+    transform: none;
 }
