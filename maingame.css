@@ -1,0 +1,32 @@
+:root {
+  --dark: #01161e;
+  --darkish: #124559;
+  --medium: #598392;
+  --lighter: #aec3b0;
+  --lightest: #eff6e0;
+}
+
+.choice-container {
+  display: flex;
+  margin-bottom: 5px;
+  width: 80%;
+  font-size: 18px;
+  border: 1px solid var(--darkish);
+  border-radius: 25px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: var(--lighter);
+  background-color: #01161e;
+}
+
+.choice-container:hover {
+  cursor: pointer;
+  background-color: var(--lightest);
+  color: var(--dark);
+  transition: 350ms;
+}
+
+.choice {
+  padding: 15px;
+}
+
