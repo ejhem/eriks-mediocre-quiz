@@ -66,6 +66,7 @@ function startGame() {
 
 function getNewQuestion() {
   if (availQuestions.length === 0 || questionsCount >= MAX) {
+    localStorage.setItem('recentScore', score);
     return window.location.assign("final.html");
   }
 
