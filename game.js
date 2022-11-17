@@ -1,8 +1,7 @@
 var question = document.getElementById("question");
 var choices = Array.from(document.getElementsByClassName("choice-text"));
-var questionsCountText = document.getElementById('questionsCount');
-var scoreText = document.getElementById('score');
-
+var questionsCountText = document.getElementById("questionsCount");
+var scoreText = document.getElementById("score");
 
 var currentQuestion = {};
 var acceptingAnswer = false;
@@ -57,6 +56,20 @@ var questions = [
 const CORRECT = 10;
 const MAX = 5;
 
+var seconds = 60;
+
+function countdown() {
+  seconds = seconds - 1;
+  if (seconds < 0) {
+    window.location = "index.html";
+  } else {
+    document.getElementById("countdown").innerHTML = seconds;
+    window.setTimeout("countdown()", 1000);
+  }
+}
+
+countdown();
+
 function startGame() {
   questionsCount = 0;
   score = 0;
@@ -66,7 +79,7 @@ function startGame() {
 
 function getNewQuestion() {
   if (availQuestions.length === 0 || questionsCount >= MAX) {
-    localStorage.setItem('recentScore', score);
+    localStorage.setItem("recentScore", score);
     return window.location.assign("final.html");
   }
 
@@ -97,22 +110,22 @@ choices.forEach(function (choice) {
       classToApply = "correct";
     }
 
-    if (classToApply === 'correct') {
-        scoreUp(CORRECT);
+    if (classToApply === "correct") {
+      scoreUp(CORRECT);
     }
 
     selectedChoice.parentElement.classList.add(classToApply);
 
-    setTimeout ( function() {
-        selectedChoice.parentElement.classList.remove(classToApply);
-        getNewQuestion();
-    },1000);
+    setTimeout(function () {
+      selectedChoice.parentElement.classList.remove(classToApply);
+      getNewQuestion();
+    }, 1000);
   });
 });
 
 function scoreUp() {
-    score ++;
-    scoreText.innerText = score;
-};
+  score++;
+  scoreText.innerText = score;
+}
 
 startGame();
