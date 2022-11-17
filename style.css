@@ -47,8 +47,9 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 80rem;
+  max-width: 80%;
   margin: 0 auto;
+  padding: 20px;
 }
 
 .flex-column {
