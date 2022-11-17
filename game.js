@@ -108,9 +108,6 @@ choices.forEach(function (choice) {
     var classToApply = "incorrect";
     if (selectedAnswer == currentQuestion.answer) {
       classToApply = "correct";
-    }
-
-    if (classToApply === "correct") {
       scoreUp(CORRECT);
     }
 
