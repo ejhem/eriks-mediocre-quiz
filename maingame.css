@@ -21,9 +21,9 @@
 
 .choice-container:hover {
   cursor: pointer;
-  background-color: var(--lightest);
+  /* background-color: var(--lightest);
   color: var(--dark);
-  transition: 350ms;
+  transition: 350ms; */
 }
 
 .choice-text {
@@ -37,4 +37,18 @@
 
 .incorrect {
   background-color: red;
+}
+
+#hud {
+  display: flex;
+  justify-content: space-between;
+}
+
+.prefix {
+  text-align: center;
+  font-size: 20px;
+}
+
+.hud-main {
+  text-align: center;
 }

@@ -1,5 +1,8 @@
-const question = document.getElementById("question");
-const choices = Array.from(document.getElementsByClassName("choice-text"));
+var question = document.getElementById("question");
+var choices = Array.from(document.getElementsByClassName("choice-text"));
+var questionsCountText = document.getElementById('questionsCount');
+var scoreText = document.getElementById('score');
+
 
 var currentQuestion = {};
 var acceptingAnswer = false;
@@ -58,7 +61,6 @@ function startGame() {
   questionsCount = 0;
   score = 0;
   availQuestions = [...questions];
-  console.log(availQuestions);
   getNewQuestion();
 }
 
@@ -66,19 +68,20 @@ function getNewQuestion() {
   if (availQuestions.length === 0 || questionsCount >= MAX) {
     return window.location.assign("final.html");
   }
+
   questionsCount++;
+
+  questionsCountText.innerText = questionsCount + "/" + MAX;
+
   var questionIndex = Math.floor(Math.random() * availQuestions.length);
   currentQuestion = availQuestions[questionIndex];
   question.innerText = currentQuestion.question;
 
   choices.forEach(function (choice) {
-    const number = choice.dataset["number"];
+    var number = choice.dataset["number"];
     choice.innerText = currentQuestion["choice" + number];
   });
   availQuestions.splice(questionIndex, 1);
-
-  console.log(availQuestions);
-
   acceptingAnswer = true;
 }
 
@@ -93,6 +96,10 @@ choices.forEach(function (choice) {
       classToApply = "correct";
     }
 
+    if (classToApply === 'correct') {
+        scoreUp(CORRECT);
+    }
+
     selectedChoice.parentElement.classList.add(classToApply);
 
     setTimeout ( function() {
@@ -101,5 +108,10 @@ choices.forEach(function (choice) {
     },1000);
   });
 });
+
+function scoreUp() {
+    score ++;
+    scoreText.innerText = score;
+};
 
 startGame();
